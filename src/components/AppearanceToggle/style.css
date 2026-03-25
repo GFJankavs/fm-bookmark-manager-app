@@ -1,0 +1,28 @@
+.appearance-toggle {
+  display: inline-flex;
+  padding: var(--spacing-025);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-0);
+  background-color: var(--color-neutral-300);
+  border-radius: var(--radius-4);
+}
+
+.appearance-toggle button {
+  all: unset;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-100);
+  border-radius: var(--radius-4);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.appearance-toggle button.toggle-light.active {
+  background-color: var(--color-neutral-0);
+}
+
+.appearance-toggle button.toggle-dark.active {
+  background-color: var(--color-neutral-600);
+}
