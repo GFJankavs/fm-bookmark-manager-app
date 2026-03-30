@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import "./style.css";
-import useThemeMode from "../../hooks/useThemeMode";
+import useThemeMode from "../../../hooks/useThemeMode";
 
 type ButtonProps =
   | (ButtonHTMLAttributes<HTMLButtonElement> & {

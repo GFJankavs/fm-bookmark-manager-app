@@ -1,7 +1,6 @@
-import useThemeMode from "../../hooks/useThemeMode";
-import IconDarkTheme from "../icons/IconDarkTheme";
-import IconLightTheme from "../icons/IconLightTheme";
-
+import useThemeMode from "../../../hooks/useThemeMode";
+import IconDarkTheme from "../../icons/IconDarkTheme";
+import IconLightTheme from "../../icons/IconLightTheme";
 import "./style.css";
 
 const AppearanceToggle = () => {

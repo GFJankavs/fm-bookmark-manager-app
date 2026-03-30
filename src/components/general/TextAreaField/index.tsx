@@ -1,8 +1,8 @@
 import { useRef, type InputHTMLAttributes, type ReactNode } from "react";
-import useThemeMode from "../../hooks/useThemeMode";
-import SearchIcon from "../icons/SearchIcon";
 import "./style.css";
 import classNames from "classnames";
+import useThemeMode from "../../../hooks/useThemeMode";
+import SearchIcon from "../../icons/SearchIcon";
 
 const TextAreaField = ({
   placeholder = "Search",

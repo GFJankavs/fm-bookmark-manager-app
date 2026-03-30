@@ -1,8 +1,8 @@
 import { Checkbox as RadixCheckbox } from "radix-ui";
 import "./styles.css";
-import CheckmarkIcon from "../icons/CheckmarkIcon";
 import classNames from "classnames";
-import useThemeMode from "../../hooks/useThemeMode";
+import useThemeMode from "../../../hooks/useThemeMode";
+import CheckmarkIcon from "../../icons/CheckmarkIcon";
 
 const Checkbox = ({
   id = "c1",

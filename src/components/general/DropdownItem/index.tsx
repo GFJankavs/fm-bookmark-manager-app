@@ -1,13 +1,13 @@
 import classNames from "classnames";
-import CheckmarkIcon from "../icons/CheckmarkIcon";
 import "./style.css";
-import useThemeMode from "../../hooks/useThemeMode";
+import useThemeMode from "../../../hooks/useThemeMode";
+import CheckmarkIcon from "../../icons/CheckmarkIcon";
 
 const DropdownItem = ({
   icon,
   label,
   checked = false,
-  onClick
+  onClick,
 }: {
   icon?: React.ReactNode;
   label?: string;

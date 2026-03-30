@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import useThemeMode from "../../hooks/useThemeMode";
 import Checkbox from "../Checkbox";
 import "./style.css";
 import classNames from "classnames";
+import useThemeMode from "../../../hooks/useThemeMode";
 
 interface NavItemProps {
   checked?: boolean;
@@ -26,7 +26,7 @@ const NavItem = ({ checked, icon, count, children }: NavItemProps) => {
         {checked && !icon && <Checkbox checked={checked} />}
         <span className="text-preset-3">{children}</span>
       </div>
-      <span className="nav-item-count text-preset-5">{count}</span>
+      {count && <span className="nav-item-count text-preset-5">{count}</span>}
     </button>
   );
 };
