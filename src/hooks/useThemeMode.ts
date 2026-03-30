@@ -1,28 +1,12 @@
-import { useEffect, useState, useCallback } from "react";
+import { useContext } from "react";
+import ThemeContext from "../context/ThemeProvider/ThemeContext";
 
-const STORAGE_KEY = "darkMode";
-
-const getInitialMode = (): boolean => {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored !== null) return JSON.parse(stored);
-  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+const useThemeMode = () => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error("useThemeMode must be used within a ThemeProvider");
+  }
+  return context;
 };
 
-const applyClass = (isDark: boolean) => {
-  document.documentElement.classList.toggle("dark", isDark);
-};
-
-export const useThemeMode = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(getInitialMode);
-
-  useEffect(() => {
-    applyClass(isDarkMode);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(isDarkMode));
-  }, [isDarkMode]);
-
-  const setDarkMode = useCallback((value: boolean) => {
-    setIsDarkMode(value);
-  }, []);
-
-  return { isDarkMode, setDarkMode };
-};
+export default useThemeMode;

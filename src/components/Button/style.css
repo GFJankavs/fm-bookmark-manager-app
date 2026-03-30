@@ -1,0 +1,120 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-125) var(--spacing-150);
+  border-radius: var(--radius-8);
+  gap: var(--spacing-050);
+  width: fit-content;
+  color: var(--color-neutral-0);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+
+  &.sm {
+    max-height: 42px;
+  }
+
+  &.md {
+    max-height: 46px;
+  }
+
+  &.primary {
+    background-color: var(--color-teal-700);
+
+    &:hover {
+      background-color: var(--color-teal-800);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-teal-700);
+      outline-offset: 2px;
+    }
+  }
+
+  &.primary.error {
+    background-color: var(--color-red-800);
+
+    &:hover {
+      background-color: var(--color-red-800);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-red-800);
+      outline-offset: 2px;
+    }
+  }
+
+  &.secondary {
+    background-color: var(--color-neutral-0);
+    color: var(--color-neutral-900);
+    border: 1px solid var(--color-neutral-400);
+
+    &:hover {
+      background-color: var(--color-neutral-100);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-teal-700);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      border: 1px solid var(--color-teal-700);
+      outline: none;
+      background-color: var(--color-neutral-0);
+    }
+  }
+
+  &.secondary.dark {
+    color: var(--color-neutral-0);
+    background-color: var(--color-neutral-800);
+    border: 1px solid var(--color-neutral-400);
+
+    &:hover {
+      border: 1px solid var(--color-neutral-400);
+      background-color: var(--color-neutral-600);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-neutral-100);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      border: 1px solid var(--color-neutral-0);
+    }
+  }
+
+  &.icon-only {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color-neutral-0);
+    border: 1px solid var(--color-neutral-400);
+    color: var(--color-neutral-900);
+    padding: 0;
+
+    &:hover {
+      background-color: var(--color-neutral-100);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-teal-700);
+      outline-offset: 2px;
+    }
+  }
+
+  &.icon-only.dark {
+    background-color: var(--color-neutral-800);
+    border: 1px solid var(--color-neutral-400);
+    color: var(--color-neutral-0);
+
+    &:hover {
+      background-color: var(--color-neutral-600);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-neutral-100);
+      outline-offset: 2px;
+    }
+  }
+}

@@ -1,35 +1,59 @@
-@import "@radix-ui/colors/black-alpha.css";
-@import "@radix-ui/colors/violet.css";
-
 /* reset */
 button {
   all: unset;
 }
 
-.CheckboxRoot {
-  background-color: white;
-  width: 25px;
-  height: 25px;
-  border-radius: 4px;
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-root {
+  background-color: transparent;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-4);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px var(--black-a7);
-}
-.CheckboxRoot:hover {
-  background-color: var(--violet-3);
-}
-.CheckboxRoot:focus {
-  box-shadow: 0 0 0 2px black;
+  border: 1px solid var(--color-neutral-500);
+  flex-shrink: 0; /* prevent shrinking */
+  line-height: 1; /* ensure consistent line-height */
 }
 
-.CheckboxIndicator {
-  color: var(--violet-11);
+.checkbox-root.dark {
+  border: 1px solid var(--color-neutral-300);
+  background-color: var(--color-neutral-0);
 }
 
-.Label {
-  color: white;
-  padding-left: 15px;
-  font-size: 15px;
-  line-height: 1;
+.checkbox-root[data-state="checked"] {
+  background-color: var(--color-teal-800);
+}
+
+.checkbox-root[data-state="unchecked"]:hover {
+  background-color: var(--color-neutral-300);
+}
+
+.checkbox-root.dark[data-state="unchecked"]:hover {
+  background-color: var(--color-neutral-600);
+}
+
+.checkbox-root:focus {
+  outline-width: 0.125rem;
+  outline-style: solid;
+  outline-color: var(--color-teal-800);
+  outline-offset: 2px;
+}
+
+.checkbox-root.dark:focus {
+  outline-color: var(--color-neutral-500);
+}
+
+.checkbox-indicator {
+  color: var(--color-neutral-0);
+}
+
+.checkbox-label {
+  color: var(--color-neutral-900);
 }

@@ -1,20 +1,38 @@
-import { Checkbox } from "radix-ui";
-import { CheckIcon } from "@radix-ui/react-icons";
+import { Checkbox as RadixCheckbox } from "radix-ui";
 import "./styles.css";
+import CheckmarkIcon from "../icons/CheckmarkIcon";
+import classNames from "classnames";
+import useThemeMode from "../../hooks/useThemeMode";
 
-const CheckboxDemo = () => (
-  <form>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <Checkbox.Root className="CheckboxRoot" defaultChecked id="c1">
-        <Checkbox.Indicator className="CheckboxIndicator">
-          <CheckIcon />
-        </Checkbox.Indicator>
-      </Checkbox.Root>
-      <label className="Label" htmlFor="c1">
-        Accept terms and conditions.
-      </label>
+const Checkbox = ({
+  id = "c1",
+  checked,
+  label,
+}: {
+  id?: string;
+  checked?: boolean;
+  label?: string;
+}) => {
+  const { isDarkMode } = useThemeMode();
+
+  return (
+    <div className="checkbox">
+      <RadixCheckbox.Root
+        className={classNames("checkbox-root", { dark: isDarkMode })}
+        checked={checked}
+        id={id}
+      >
+        <RadixCheckbox.Indicator className="checkbox-indicator">
+          <CheckmarkIcon size={8} />
+        </RadixCheckbox.Indicator>
+      </RadixCheckbox.Root>
+      {label ? (
+        <label className="checkbox-label text-preset-3" htmlFor={id}>
+          {label}
+        </label>
+      ) : null}
     </div>
-  </form>
-);
+  );
+};
 
-export default CheckboxDemo;
+export default Checkbox;
