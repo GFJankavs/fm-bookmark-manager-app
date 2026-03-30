@@ -5,6 +5,7 @@ import DropdownItem from "./components/DropdownItem";
 import AddIcon from "./components/icons/AddIcon";
 import CopyURLIcon from "./components/icons/CopyURLIcon";
 import InputField from "./components/InputField";
+import NavItem from "./components/NavItem";
 import TextAreaField from "./components/TextAreaField";
 
 import "./index.css";
@@ -27,6 +28,9 @@ function App() {
         id="text-field"
       />
       <Button variant="iconOnly" icon={<AddIcon />} />
+      <NavItem checked count={6}>
+        Home
+      </NavItem>
     </main>
   );
 }

@@ -8,9 +8,11 @@ const Checkbox = ({
   id = "c1",
   checked,
   label,
+  onCheckboxClick,
 }: {
   id?: string;
   checked?: boolean;
+  onCheckboxClick?: () => void;
   label?: string;
 }) => {
   const { isDarkMode } = useThemeMode();
@@ -20,6 +22,7 @@ const Checkbox = ({
       <RadixCheckbox.Root
         className={classNames("checkbox-root", { dark: isDarkMode })}
         checked={checked}
+        onClick={onCheckboxClick}
         id={id}
       >
         <RadixCheckbox.Indicator className="checkbox-indicator">
