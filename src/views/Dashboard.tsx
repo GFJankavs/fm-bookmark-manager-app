@@ -1,7 +1,7 @@
 import ProfileMenu from "../modules/ProfileMenu";
 import AddBookmark from "../modules/AddBookmark";
 
-function Dashboard() {
+function DashboardPage() {
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
       <ProfileMenu />
@@ -10,4 +10,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default DashboardPage;

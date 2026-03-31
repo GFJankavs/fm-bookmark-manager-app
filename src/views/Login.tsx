@@ -5,7 +5,7 @@ import useThemeMode from "../hooks/useThemeMode";
 import "../styles/views/Login.css";
 import classNames from "classnames";
 
-const Login = () => {
+const LoginPage = () => {
   const { isDarkMode } = useThemeMode();
 
   return (
@@ -35,7 +35,7 @@ const Login = () => {
           </p>
           <p className="text-preset-4-medium">
             Don't have an account?{" "}
-            <Link to="/register" className="login-register">
+            <Link to="/signup" className="login-register">
               Sign up
             </Link>
           </p>
@@ -45,4 +45,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

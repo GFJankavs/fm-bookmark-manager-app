@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router";
-import Login from "./views/Login";
-import Dashboard from "./views/Dashboard";
+import LoginPage from "./views/Login";
+import DashboardPage from "./views/Dashboard";
+import SignupPage from "./views/Signup";
 
 const router = createBrowserRouter([
   {
@@ -9,11 +10,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <LoginPage />,
+  },
+  {
+    path: "/signup",
+    element: <SignupPage />,
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <DashboardPage />,
   },
 ]);
 
