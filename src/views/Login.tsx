@@ -29,7 +29,7 @@ const LoginPage = () => {
         <footer className="login-footer">
           <p className="text-preset-4-medium">
             Forgot password?{" "}
-            <Link to="/reset-password" className="login-reset">
+            <Link to="/forgot-password" className="login-reset">
               Reset it
             </Link>
           </p>
