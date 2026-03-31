@@ -67,6 +67,12 @@ input {
   gap: var(--spacing-200);
 }
 
+.add-bookmark-close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 @keyframes overlayShow {
   from {
     opacity: 0;

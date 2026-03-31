@@ -62,7 +62,7 @@ const AddBookmark = () => {
             <Button
               variant="iconOnly"
               aria-label="Close"
-              className="IconButton"
+              className="add-bookmark-close-icon"
               icon={<Cross2Icon />}
             />
           </Dialog.Close>
