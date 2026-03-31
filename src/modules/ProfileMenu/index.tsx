@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import useThemeMode from "../../hooks/useThemeMode";
-import AppearanceToggle from "../general/AppearanceToggle";
-import LogoutIcon from "../icons/LogoutIcon";
-import ThemeIcon from "../icons/ThemeIcon";
+import AppearanceToggle from "../../components/general/AppearanceToggle";
+import LogoutIcon from "../../components/icons/LogoutIcon";
+import ThemeIcon from "../../components/icons/ThemeIcon";
 import "./style.css";
 
 const Divider = () => <div className="profile-menu-divider" />;

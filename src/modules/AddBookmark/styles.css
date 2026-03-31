@@ -1,0 +1,88 @@
+/* reset */
+button,
+fieldset,
+input {
+  all: unset;
+}
+
+.add-bookmark-overlay {
+  background-color: var(--color-overlay);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.add-bookmark-content {
+  background-color: var(--color-neutral-0);
+  border-radius: var(--radius-16);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 570px;
+  padding: var(--spacing-400);
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.add-bookmark-content:focus {
+  outline: none;
+}
+
+.add-bookmark-content.dark {
+  background-color: var(--color-neutral-800);
+}
+
+.add-bookmark-header {
+  display: grid;
+  gap: var(--spacing-100);
+  margin-bottom: 2rem;
+}
+
+.add-bookmark-title {
+  color: var(--color-neutral-900);
+}
+
+.add-bookmark-content.dark .add-bookmark-title {
+  color: var(--color-neutral-0);
+}
+
+.add-bookmark-description {
+  color: var(--color-neutral-800);
+}
+
+.add-bookmark-content.dark .add-bookmark-description {
+  color: var(--color-neutral-100);
+}
+
+.add-bookmark-form {
+  display: grid;
+  gap: var(--spacing-150);
+}
+
+.add-bookmark-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: var(--spacing-400);
+  gap: var(--spacing-200);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

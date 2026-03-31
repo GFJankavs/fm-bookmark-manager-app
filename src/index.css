@@ -16,6 +16,8 @@
   --color-red-600: #fd4740;
   --color-red-800: #cb0a04;
 
+  --color-overlay: rgba(19, 19, 19, 0.7);
+
   /* Spacing scale */
   --spacing-0: 0rem; /* 0px */
   --spacing-025: 0.125rem; /* 2px */

@@ -2,19 +2,18 @@ import { useRef, type InputHTMLAttributes, type ReactNode } from "react";
 import "./style.css";
 import classNames from "classnames";
 import useThemeMode from "../../../hooks/useThemeMode";
-import SearchIcon from "../../icons/SearchIcon";
 
 const InputField = ({
-  placeholder = "Search",
+  placeholder,
   label,
-  icon = <SearchIcon />,
+  icon,
   id,
   hint,
   error,
   required,
   ...rest
 }: Omit<InputHTMLAttributes<HTMLInputElement>, "ref"> & {
-  label?: string;
+  label: string;
   icon?: ReactNode;
   hint?: string;
   error?: boolean;
@@ -23,7 +22,7 @@ const InputField = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div
+    <fieldset
       className={classNames("input-container", {
         dark: isDarkMode,
       })}
@@ -55,7 +54,7 @@ const InputField = ({
         />
       </div>
       {hint && <p className="input-hint text-preset-4-medium">{hint}</p>}
-    </div>
+    </fieldset>
   );
 };
 

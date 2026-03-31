@@ -2,12 +2,11 @@ import { useRef, type InputHTMLAttributes, type ReactNode } from "react";
 import "./style.css";
 import classNames from "classnames";
 import useThemeMode from "../../../hooks/useThemeMode";
-import SearchIcon from "../../icons/SearchIcon";
 
 const TextAreaField = ({
-  placeholder = "Search",
+  placeholder,
   label,
-  icon = <SearchIcon />,
+  icon,
   id,
   hint,
   error,
@@ -16,7 +15,7 @@ const TextAreaField = ({
   value,
   ...rest
 }: Omit<InputHTMLAttributes<HTMLTextAreaElement>, "ref"> & {
-  label?: string;
+  label: string;
   icon?: ReactNode;
   hint?: string;
   error?: boolean;
@@ -26,7 +25,7 @@ const TextAreaField = ({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   return (
-    <div
+    <fieldset
       className={classNames("textarea-container", {
         dark: isDarkMode,
       })}
@@ -63,7 +62,7 @@ const TextAreaField = ({
           <span className="text-preset-5">{`${typeof value === "string" ? value.length : 0}/${maxLength}`}</span>
         </div>
       )}
-    </div>
+    </fieldset>
   );
 };
 
