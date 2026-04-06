@@ -1,4 +1,6 @@
 import classNames from "classnames";
+import { useRef, useState, useEffect, type RefObject, useCallback } from "react";
+import { createPortal } from "react-dom";
 import useThemeMode from "../../hooks/useThemeMode";
 import AppearanceToggle from "../../components/general/AppearanceToggle";
 import LogoutIcon from "../../components/icons/LogoutIcon";
@@ -40,17 +42,105 @@ const ProfileMenuLogout = () => (
   </button>
 );
 
-const ProfileMenu = () => {
+const ProfileMenuContent = ({
+  isOpen = false,
+  menuRef,
+  position,
+}: {
+  isOpen?: boolean;
+  menuRef?: RefObject<HTMLDivElement | null>;
+  position?: { top: number; right: number };
+}) => {
   const { isDarkMode } = useThemeMode();
-  return (
-    <div className={classNames("profile-menu", { dark: isDarkMode })}>
-      <ProfileMenuUser />
-      <Divider />
-      <ProfileMenuTheme />
-      <Divider />
-      <ProfileMenuLogout />
-    </div>
-  );
+
+  return isOpen
+    ? createPortal(
+        <div
+          ref={menuRef}
+          className={classNames("profile-menu", { dark: isDarkMode })}
+          style={{
+            position: "absolute",
+            top: `${position?.top ?? 0}px`,
+            right: `${position?.right ?? 0}px`,
+          }}
+        >
+          <ProfileMenuUser />
+          <Divider />
+          <ProfileMenuTheme />
+          <Divider />
+          <ProfileMenuLogout />
+        </div>,
+        document.body
+      )
+    : null;
 };
+
+const ProfileMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [position, setPosition] = useState<{ top: number; right: number } | null>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const calculatePosition = useCallback( () => {
+    if (!buttonRef.current) return;
+
+    const buttonRect = buttonRef.current.getBoundingClientRect();
+    const top = buttonRect.bottom + 12;
+    const right = Math.min(window.innerWidth - buttonRect.right, position?.right ?? 0);
+
+    setPosition({ top, right });
+  }, [position]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    calculatePosition();
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
+      if (
+        buttonRef.current &&
+        !buttonRef.current.contains(target) &&
+        menuRef.current &&
+        !menuRef.current.contains(target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleResize = () => {
+      calculatePosition();
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [calculatePosition, isOpen]);
+
+  return (
+    <>
+      <button
+        ref={buttonRef}
+        onClick={toggleMenu}
+        className="profile-menu-button"
+      >
+        <img src="/images/image-avatar.webp" alt="User avatar button" />
+      </button>
+
+      <ProfileMenuContent isOpen={isOpen} menuRef={menuRef} position={position ?? undefined} />
+    </>
+  );
+}
+
+
 
 export default ProfileMenu;

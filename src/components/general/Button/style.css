@@ -1,11 +1,15 @@
 .button {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   justify-content: center;
   padding-block: var(--spacing-125);
+  padding-inline: var(--spacing-100);
   border-radius: var(--radius-8);
   gap: var(--spacing-050);
   width: 100%;
+  max-width: fit-content;
+  white-space: nowrap;
   color: var(--color-neutral-0);
   border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
@@ -86,12 +90,12 @@
   }
 
   &.icon-only {
-    width: 2rem;
-    height: 2rem;
+    width: 40px;
+    /* height: 40px; */
     background-color: var(--color-neutral-0);
     border: 1px solid var(--color-neutral-400);
     color: var(--color-neutral-900);
-    padding: 0;
+    padding: var(--spacing-125);
 
     &:hover {
       background-color: var(--color-neutral-100);
@@ -101,6 +105,11 @@
       outline: 2px solid var(--color-teal-700);
       outline-offset: 2px;
     }
+  }
+
+  &.icon-only.primary {
+    background-color: var(--color-teal-700);
+    color: var(--color-neutral-0);
   }
 
   &.icon-only.dark {

@@ -6,12 +6,14 @@ import useThemeMode from "../../../hooks/useThemeMode";
 
 interface NavItemProps {
   checked?: boolean;
+  withCheckbox?: boolean;
   icon?: ReactNode;
   count?: number;
   children: string;
+  onClick?: () => void;
 }
 
-const NavItem = ({ checked, icon, count, children }: NavItemProps) => {
+const NavItem = ({ withCheckbox, checked, icon, count, children, onClick }: NavItemProps) => {
   const { isDarkMode } = useThemeMode();
 
   return (
@@ -20,10 +22,11 @@ const NavItem = ({ checked, icon, count, children }: NavItemProps) => {
         checked: checked,
         dark: isDarkMode,
       })}
+      onClick={onClick}
     >
       <div className="nav-item-content">
         {icon && !checked && <>{icon}</>}
-        {checked && !icon && <Checkbox checked={checked} />}
+        {withCheckbox && !icon && <Checkbox checked={checked} />}
         <span className="text-preset-3">{children}</span>
       </div>
       {count && <span className="nav-item-count text-preset-5">{count}</span>}

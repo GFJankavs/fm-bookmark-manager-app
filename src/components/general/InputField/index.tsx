@@ -13,7 +13,7 @@ const InputField = ({
   required,
   ...rest
 }: Omit<InputHTMLAttributes<HTMLInputElement>, "ref"> & {
-  label: string;
+  label?: string;
   icon?: ReactNode;
   hint?: string;
   error?: boolean;

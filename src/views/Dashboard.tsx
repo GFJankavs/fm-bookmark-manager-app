@@ -1,11 +1,9 @@
-import ProfileMenu from "../modules/ProfileMenu";
-import AddBookmark from "../modules/AddBookmark";
+import Navbar from "../modules/Navbar";
 
 function DashboardPage() {
   return (
     <main style={{ display: "flex", flexDirection: "column" }}>
-      <ProfileMenu />
-      <AddBookmark />
+      <Navbar />
     </main>
   );
 }

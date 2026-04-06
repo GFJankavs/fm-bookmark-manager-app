@@ -23,6 +23,7 @@ type ButtonProps =
   | (Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
       variant: "iconOnly";
       icon: ReactNode;
+      buttonType?: "primary" | "secondary";
     });
 
 interface ButtonPrimaryProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -48,6 +49,7 @@ interface ButtonIconOnlyProps extends Omit<
 > {
   icon: ReactNode;
   isDarkMode: boolean;
+  buttonType?: "primary" | "secondary";
 }
 
 const ButtonPrimary = ({
@@ -112,6 +114,7 @@ const ButtonIconOnly = ({
   icon,
   className,
   isDarkMode,
+  buttonType = "primary",
   ...rest
 }: ButtonIconOnlyProps) => {
   return (
@@ -120,6 +123,8 @@ const ButtonIconOnly = ({
         "button icon-only",
         {
           dark: isDarkMode,
+          primary: buttonType === "primary",
+          secondary: buttonType === "secondary",
         },
         className,
       )}
@@ -135,12 +140,13 @@ const Button = (props: ButtonProps) => {
 
   if ("icon" in props) {
     // iconOnly variant
-    const { icon, className, ...rest } = props;
+    const { icon, className, buttonType, ...rest } = props;
     return (
       <ButtonIconOnly
         icon={icon}
         className={className}
         isDarkMode={isDarkMode}
+        buttonType={buttonType}
         {...rest}
       />
     );

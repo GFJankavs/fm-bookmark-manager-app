@@ -1,0 +1,30 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--spacing-200);
+    padding-block: var(--spacing-150);
+    background-color: var(--color-neutral-0);
+    gap: var(--spacing-125);
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-100);
+}
+
+.navbar-right > button:nth-of-type(2) {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navbar-right > button:nth-of-type(1) {
+        display: none;
+    }
+
+    .navbar-right > button:nth-of-type(2) {
+        display: inline-flex;
+    }
+}

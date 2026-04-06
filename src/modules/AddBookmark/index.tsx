@@ -41,18 +41,6 @@ const AddBookmark = () => {
               required
               placeholder="e.g. design, learning, tools"
             />
-
-            {/* <div
-            style={{
-              display: "flex",
-              //   marginTop: 25,
-              justifyContent: "flex-end",
-            }}
-          >
-            <Dialog.Close asChild>
-              <button className="Button green">Save changes</button>
-            </Dialog.Close>
-          </div> */}
           </form>
           <div className="add-bookmark-actions">
             <Button variant="secondary">Cancel</Button>

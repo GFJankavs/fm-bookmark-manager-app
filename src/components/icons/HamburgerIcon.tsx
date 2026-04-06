@@ -1,7 +1,7 @@
-const SearchIcon = ({
-  size = 20,
+const HamburgerIcon = ({
+    size = 20,
 }: {
-  size?: number;
+    size?: number;
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -15,9 +15,9 @@ const SearchIcon = ({
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="1.6"
-      d="m17.5 17.5-3.625-3.625m1.958-4.708a6.667 6.667 0 1 1-13.333 0 6.667 6.667 0 0 1 13.333 0"
+      d="M2.5 10h15m-15-5h15m-15 10h15"
     />
   </svg>
 );
 
-export default SearchIcon;
+export default HamburgerIcon;
